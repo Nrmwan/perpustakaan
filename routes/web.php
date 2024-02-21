@@ -1,5 +1,6 @@
 <?php
-  
+
+use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Auth;
   
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,12 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+
+    Route::get('/admin/buku', [BukuController::class, 'index'])->name('buku');
+    Route::get('/admin/tambah_buku', [BukuController::class, 'create'])->name('tambah');
+    Route::post('/admin/simpan', [BukuController::class, 'store'])->name('simpan');
+    
+    Route::get('/admin/user', [HomeController::class, 'user'])->name('user');
 });
   
 /*------------------------------------------
