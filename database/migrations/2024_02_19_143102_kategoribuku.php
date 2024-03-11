@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kategoribuku', function (Blueprint $table) {
             $table->id('kategoriID');
             // $table->integer('KategoriID');
-            $table->string('namaKategori');
+            $table->string('namaKategori')->unique();
             $table->timestamps();
         });
     }

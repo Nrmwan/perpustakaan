@@ -48,6 +48,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
   
     /**
@@ -59,7 +60,7 @@ class User extends Authenticatable
     protected function type(): Attribute
     {
         return new Attribute(
-            get: fn ($value) =>  ["user", "admin", "petugas"][$value],
+            get: fn ($value) =>  ["user", "admin"][$value],
         );
     }
 }

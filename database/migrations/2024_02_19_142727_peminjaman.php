@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('userID');
             $table->unsignedBigInteger('bukuID');
             $table->date('tanggalPeminjaman');
-            $table->date('tanggalPengembalian');
-            $table->string('statusPeminjaman', 50);
+            $table->date('batasPengembalian');
+            $table->date('tanggalPengembalian', 50)->nullable();
             $table->timestamps();
 
             $table->foreign('userID')->references('id')->on('users');

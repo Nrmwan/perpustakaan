@@ -34,15 +34,6 @@ class CreateUsersSeeder extends Seeder
                'type'=>1,
                'password'=> bcrypt('12345678'),
             ],
-            [
-               'userName'=>'Petugas',
-               'namaLengkap'=>'Petugas User',
-               'no_tlp'=>'089388237462',
-               'alamat'=>'Salatiga',
-               'email'=>'petugas@gmail.com',
-               'type'=>2,
-               'password'=> bcrypt('12345678'),
-            ],
         ];
     
         foreach ($users as $key => $user) {

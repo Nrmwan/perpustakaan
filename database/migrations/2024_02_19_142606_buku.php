@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id('bukuID');
             // $table->integer('BukuID');
             $table->string('judul');
+            $table->string('cover', 255)->nullable();
             $table->string('penulis');
             $table->string('penerbit');
             $table->date('tahunTerbit');
+            $table->integer('stok')->default(0);
             $table->timestamps();
         });
     }
@@ -28,5 +30,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('buku');
+        Schema::table('buku', function (Blueprint $table) {
+            if (Schema::hasColumn('buku', 'cover')) {
+                $table->dropColumn('cover');
+            }
+        });
     }
 };
